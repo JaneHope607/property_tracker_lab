@@ -12,7 +12,7 @@ property2.save()
 property1.value = 420000
 property1.update()
 
-p Property.find(12)
+p Property.find_by_address('25 Belmont Crescent')
 
 binding.pry
 nil

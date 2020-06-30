@@ -64,4 +64,18 @@ class Property
         return found_properties.map { |property| Property.new(property) }
     end
 
+    def self.find_by_address(address)
+        db = PG.connect( {dbname: 'estate_agents', host: 'localhost'} )
+        sql = "SELECT * FROM properties WHERE address = $1"
+        values = [address]
+        db.prepare('find_by_address', sql)
+        found_properties = db.exec_prepared('find_by_address', values)
+        db.close()
+        if found_properties 
+            return found_properties.map { |property| Property.new(property) }
+        else
+            return nil
+        end
+    end
+
 end

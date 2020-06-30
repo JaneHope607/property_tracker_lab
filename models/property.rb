@@ -54,4 +54,14 @@ class Property
         db.close()
     end
 
+    def self.find(id)
+        db = PG.connect( {dbname: 'estate_agents', host: 'localhost'} )
+        sql = "SELECT * FROM properties WHERE id = $1"
+        values = [id]
+        db.prepare('find', sql)
+        found_properties = db.exec_prepared('find', values)
+        db.close()
+        return found_properties.map { |property| Property.new(property) }
+    end
+
 end

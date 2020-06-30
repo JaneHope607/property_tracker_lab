@@ -12,7 +12,7 @@ property2.save()
 property1.value = 420000
 property1.update()
 
-property2.delete()
+p Property.find(12)
 
 binding.pry
 nil

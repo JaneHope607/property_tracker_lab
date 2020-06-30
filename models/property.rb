@@ -2,7 +2,7 @@ require('pg')
 
 class Property
 
-    attr_accessor :address, :value, :year_built, :square_feet
+    attr_accessor :address, :value, :year_built, :build
     attr_reader :id
 
     def initialize(options)
@@ -10,7 +10,7 @@ class Property
         @address = options['address']
         @value = options['value']
         @year_built = options['year_built']
-        @square_feet = options['square_feet']
+        @build = options['build']
     end
 
 end

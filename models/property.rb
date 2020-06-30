@@ -37,4 +37,12 @@ class Property
         db.close()
     end
 
+    def self.delete_all()
+        db = PG.connect( {dbname: 'estate_agents', host: 'localhost'} )
+        sql = "DELETE FROM properties"
+        db.prepare("delete_all", sql)
+        db.exec_prepared("delete_all")
+        db.close()
+    end
+
 end

@@ -4,6 +4,6 @@ CREATE TABLE properties(
     id SERIAL PRIMARY KEY,
     address VARCHAR(255),
     value INT,
-    year_built INT,
+    year_built INT,  
     build VARCHAR(255)
 );
